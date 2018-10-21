@@ -1,13 +1,12 @@
 name:                evolutionary
 version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/githubuser/evolutionary#readme
-license:             BSD3
+description:         Please see the README on GitHub at <https://github.com/groscoe/nqueens#readme>
+homepage:            https://github.com/groscoe/evolutionary#readme
+license:             MIT
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2018 Author name here
+author:              Gustavo Roscoe
+maintainer:          gustavo@gustavoroscoe.com
+copyright:           2018 Gustavo Roscoe
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
@@ -15,10 +14,19 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
-  build-depends:       base >= 4.7 && < 5
+  exposed-modules:
+      Algorithm.Evolutionary
+      Algorithm.Evolutionary.Internals.Population
+      Algorithm.Evolutionary.Operators.Mutation
+      Algorithm.Evolutionary.Operators.Recombination
+      Algorithm.Evolutionary.Operators.Selection
+  build-depends:
+      MonadRandom
+    , base >=4.7 && <5
+    , random-shuffle
+    , split
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/evolutionary
+  location: https://github.com/groscoe/evolutionary
