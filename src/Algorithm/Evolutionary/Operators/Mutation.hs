@@ -1,5 +1,6 @@
 module Algorithm.Evolutionary.Operators.Mutation (
-  swapAlleles
+  swapAlleles,
+  flipBit
   ) where
 
 import Control.Monad.Random.Class
@@ -18,3 +19,10 @@ swap i j = swap' (i-1) (j-1)
           zipWith (\x y -> if x == f then xs !! s
                           else if x == s then xs !! f
                           else y) [0..] xs
+
+
+flipBit :: MonadRandom m => Double -> [Bool] -> m [Bool]
+flipBit mutationProbability = mapM (flipIfSmallerThan mutationProbability)
+  where flipIfSmallerThan x bit = do
+          r <- getRandomR (0, 0.1)
+          pure $ if r <= x then not bit else bit
